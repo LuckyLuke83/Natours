@@ -44,29 +44,25 @@ body {
      url(../img/hero.jpg);
     background-size: cover; /* fit element inside box */
     background-position: top; /* top of the image stays at top of element during resizing also can be center and bottom */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
-}
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__logo {
-    height: 3.5rem;
-}
-
-.header__text-box {
-   position: absolute;
-   top: 40%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   text-align: center;
-   /* display: flex;
-   flex-direction: column;
-   gap: 15px;
-   align-content: center; */
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    &__text-box {
+       position: absolute;
+       top: 40%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       text-align: center;
+    }
 }
 
 .heading-primary {
@@ -74,34 +70,36 @@ body {
     text-transform: uppercase;
     backface-visibility: hidden; /*to fix shaking animation (used if neccesary) */
     margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-    display: block;  /*block elements occupy 100% available width and has <br> at the end */
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3rem;
-    margin-right: -3rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    text-align: center;
+    &--main {
+        display: block;  /*block elements occupy 100% available width and has <br> at the end */
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3rem;
+        margin-right: -3rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        text-align: center;
+        
+        /* animation: moveInLeft 1s ease-out; */
+        /* animation-delay: 3s; */
+        /* animation-iteration-count: 3; */
     
-    /* animation: moveInLeft 1s ease-out; */
-    /* animation-delay: 3s; */
-    /* animation-iteration-count: 3; */
-
+    }
+    
+    &--sub {
+        /* display: block; block elements occupy 100% available width and has <br> at the end */
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.6rem;
+        margin-right: -1.6rem;
+        animation: moveInRight 1s ease-out;
+    }
 }
 
-.heading-primary--sub {
-    /* display: block; block elements occupy 100% available width and has <br> at the end */
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.6rem;
-    margin-right: -1.6rem;
-    animation: moveInRight 1s ease-out;
-}
+
 
 /* for performance it's best idea to animate two properties */
 @keyframes moveInLeft {
@@ -148,56 +146,58 @@ body {
     }
 }
 
-.btn:link, 
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s; /* all positions are enable to animate */
-    position: relative; /*because we want to position .btn::after in relate to this element */
-    font-size: 1.6rem;
-}
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s; /* all positions are enable to animate */
+        position: relative; /*because we want to position .btn::after in relate to this element */
+        font-size: 1.6rem;
+    }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); 
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2); 
+    }
 
-}
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2); 
+    }
+    
+/* ::after elemtn is behind original element */
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position:absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
 
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); 
+/* we want to see after element only when hover on original element */
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+    
 }
 
 .btn--white {
     background-color: $color-white;
     color: $color-light-gray;
-}
 
-/* ::after elemtn is behind original element */
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position:absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
-
-.btn--white::after {
-    background-color: $color-white;
-}
-
-/* we want to see after element only when hover on original element */
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+    &::after {
+        background-color: $color-white;
+    }
 }
 
 .btn--animated {
