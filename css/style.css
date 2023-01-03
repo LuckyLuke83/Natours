@@ -107,8 +107,7 @@ body {
     transform: translateY(0); } }
 
 .btn {
-  /* ::after elemtn is behind original element */
-  /* we want to see after element only when hover on original element */ }
+  /* ::after elemtn is behind original element */ }
   .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -122,7 +121,11 @@ body {
     font-size: 1.6rem; }
   .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* we want to see after element only when hover on original element */ }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
   .btn:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
@@ -137,9 +140,6 @@ body {
     left: 0;
     z-index: -1;
     transition: all .4s; }
-  .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
 
 .btn--white {
   background-color: #fff;

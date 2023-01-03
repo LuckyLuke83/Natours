@@ -7,6 +7,17 @@ Dark green: #28b485
 
 */
 
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";  //no "_" and no ".scss"
+@import "base/base"; 
+@import "base/typography";
+@import "base/utilities";
+
+@import "pages/home";
+
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
@@ -162,6 +173,11 @@ body {
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba($color-black,.2); 
+        /* we want to see after element only when hover on original element */
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
     }
 
     &:active {
@@ -181,12 +197,6 @@ body {
         left: 0;
         z-index: -1;
         transition: all .4s;
-    }
-
-/* we want to see after element only when hover on original element */
-    &:hover::after {
-        transform: scaleX(1.4) scaleY(1.6);
-        opacity: 0;
     }
     
 }
