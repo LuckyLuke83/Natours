@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+    box-sizing: inherit; /*inherited from body element (belove) */
+}
+
+html {
+    //defines what 1 REM is
+    font-size: 62.5%; /* 10px because it's easier to calculate rem */
+    /* % is for better 10/16 (default font-size is 16px and we want to set it to 10px) */
+}
+
+body {
+    box-sizing: border-box;
+}
