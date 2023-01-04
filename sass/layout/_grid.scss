@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width;  //1140px - standard design
-    background-color: #eee;
     margin: 0 auto; //centering block element in floating model
     
     //selecting everything but last child
@@ -16,7 +15,7 @@
     //* = contain "col-"
 
     [class^="col-"] {
-        background-color: orangered;
+        
         float: left;
 
         &:not(:last-child) {
