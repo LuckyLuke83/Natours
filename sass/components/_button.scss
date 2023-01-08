@@ -8,7 +8,7 @@
         border-radius: 10rem;
         transition: all .2s; /* all positions are enable to animate */
         position: relative; /*because we want to position .btn::after in relate to this element */
-        font-size: 1.6rem;
+        font-size: $default-font-size;
     }
 
     &:hover {
@@ -54,4 +54,31 @@
 .btn--animated {
 animation: moveInBottom .5s ease-out .75s; /*last property is delay of start */
 animation-fill-mode: backwards; /* set initial state of animation*/
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        
+        transition: all 0.2s;
+    }
+
+    &:hover {
+        color: $color-grey-light-1;
+        background-color: $color-primary;
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2); 
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2); 
+    }
+
 }
