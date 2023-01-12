@@ -6,6 +6,7 @@
      url(../img/hero.jpg);
     background-size: cover; /* fit element inside box */
     background-position: top; /* top of the image stays at top of element during resizing also can be center and bottom */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__logo-box {
