@@ -51,6 +51,16 @@
     }
 }
 
+.btn--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+        background-color: $color-primary;
+    }
+}
+
+
 .btn--animated {
 animation: moveInBottom .5s ease-out .75s; /*last property is delay of start */
 animation-fill-mode: backwards; /* set initial state of animation*/
