@@ -1,4 +1,5 @@
 .btn {
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -9,9 +10,13 @@
         transition: all .2s; /* all positions are enable to animate */
         position: relative; /*because we want to position .btn::after in relate to this element */
         font-size: $default-font-size;
+        //Change for the <button> 
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
+        outline: none;
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba($color-black,.2); 
         /* we want to see after element only when hover on original element */
@@ -21,7 +26,8 @@
         }
     }
 
-    &:active {
+    &:active,
+    &:focus {
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2); 
     }
