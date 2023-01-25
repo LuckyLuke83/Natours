@@ -1,4 +1,20 @@
 /*
+0 - 600 px:     Phone
+600 - 900 px:   Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800px] Here normal style apply
+1800px +:       Big desktop
+
+
+$breakpoint argument choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
+/*
 COLORS:
 
 Light green: #7ed56f
@@ -45,6 +61,15 @@ html {
   font-size: 62.5%;
   /* 10px because it's easier to calculate rem */
   /* % is for better 10/16 (default font-size is 16px and we want to set it to 10px) */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
@@ -688,7 +713,12 @@ body {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  opacity: 1; }
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -698,7 +728,10 @@ body {
     display: table;
     overflow: hidden;
     background-color: #fff;
-    border-radius: 3px; }
+    border-radius: 3px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .4s .2s; }
   .popup__left {
     width: 33%;
     display: table-cell; }
@@ -711,6 +744,9 @@ body {
   .popup__img {
     display: block;
     width: 100%; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); }
   .popup__close {
     position: absolute;
     top: 2.5rem;
