@@ -35,11 +35,16 @@
         float: left;
         margin-inline-start: 0;
         margin-inline-end: 0;
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(44% at 50% 50%); //first var is radius second (after 'at') is position of center)
-        clip-path: circle(50% at 50% 50%);
         transform: skewX(12deg) translateX(-1rem);//best way to move floated element is to use transform
-        position: relative;  
+        position: relative;
+        overflow: hidden;
+
+        @supports (clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)) or (-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(44% at 50% 50%); //first var is radius second (after 'at') is position of center)
+            shape-outside: circle(44% at 50% 50%); //first var is radius second (after 'at') is position of center)
+        }
         
         @include respond(phone) {
             transform: skewX(0deg) translateX(-1rem);
