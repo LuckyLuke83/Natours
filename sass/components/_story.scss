@@ -7,10 +7,26 @@
     padding: 6rem;
     font-size: $default-font-size;
     transform: skewX(-12deg);
+
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+
+    @include respond(phone) {
+        transform: skewX(0deg);
+
+    }
     
 
     & > * {
         transform: skewX(12deg);
+
+        @include respond(phone) {
+            transform: skewX(0deg);
+    
+        }
     }
 
     &__shape {
@@ -21,10 +37,14 @@
         margin-inline-end: 0;
         -webkit-shape-outside: circle(50% at 50% 50%);
         shape-outside: circle(44% at 50% 50%); //first var is radius second (after 'at') is position of center)
-
         clip-path: circle(50% at 50% 50%);
         transform: skewX(12deg) translateX(-1rem);//best way to move floated element is to use transform
-        position: relative;        
+        position: relative;  
+        
+        @include respond(phone) {
+            transform: skewX(0deg) translateX(-1rem);
+    
+        }
     }
 
     &__img {

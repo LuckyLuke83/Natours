@@ -1,13 +1,29 @@
 .header {
     position: relative;
     height: 95vh;
-    background-image: linear-gradient(to right,
-    rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
-     url(../img/hero.jpg);
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero-small.jpg);
     background-size: cover; /* fit element inside box */
     background-position: top; /* top of the image stays at top of element during resizing also can be center and bottom */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    //resolution of Retina screen
+    @media (min-resolution: 192dpi) {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)),
+            url(../img/hero.jpg);
+    }
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
 
     &__logo-box {
         position: absolute;

@@ -16,6 +16,11 @@
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
         text-align: center;
         cursor: pointer;
+
+        @include respond(tab-port) {
+            top: 2.5rem;
+            right: 2.5rem;
+        }
     }
 
     &__background {
@@ -29,6 +34,12 @@
         z-index: 100;
         transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
         // transform: scale(80);
+
+        @include respond(tab-port) {
+            top: 3rem;
+        right: 3rem;
+        }
+
     }
 
     &__nav {
@@ -49,6 +60,11 @@
         transform: translate(-50%, -50%);
         list-style: none;
         text-align: center;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline-start: 0;
     }
 
     &__item {
