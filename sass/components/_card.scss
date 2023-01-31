@@ -159,7 +159,10 @@
         
     }
 
-    @include respond(tab-port) {
+    // @include respond(tab-port) {
+    //media query on devices when hover effect is not possible (big tablets)
+    @media only screen and (max-width: 56.25em),
+    only screen and (hover: none) { //oposite is (hover: hover)
         height: auto;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
         
